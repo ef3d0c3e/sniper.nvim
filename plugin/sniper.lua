@@ -1,0 +1,1 @@
+require("sniper").setup()
