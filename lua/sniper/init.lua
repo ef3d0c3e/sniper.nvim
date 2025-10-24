@@ -3,26 +3,7 @@ local M = {}
 M.ns_id = vim.api.nvim_create_namespace("sniper")
 
 M.config = {
-	marks = {
-		paren =
-		{
-			hi = { bg = "#7f2fFF", fg = "#000000", bold = true },
-			key = { "p", "P" },
-			symbols = { "(", ")", },
-		},
-		braces =
-		{
-			hi = { bg = "#Ff8f4F", fg = "#000000", bold = true },
-			key = { "b", "B" },
-			symbols = { "{", "}", },
-		},
-		commas =
-		{
-			hi = { bg = "#FFFF00", fg = "#000000", bold = true },
-			key = { "c", "C" },
-			symbols = { ",", ";", },
-		}
-	}
+	marks = {}
 }
 
 function M.setup(opts)

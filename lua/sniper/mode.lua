@@ -32,7 +32,10 @@ local function sniper_mode_callback(sniper)
 			-- accumulate number keys for count
 			M.count_buffer = M.count_buffer .. key
 			return "" -- block from normal processing
-		elseif key:match("%a") then
+		elseif key == vim.api.nvim_replace_termcodes("<Esc>", true, true, true) then
+			quit_sniper_mode(sniper)
+			return ""
+		else
 			local count = tonumber(M.count_buffer) or 1
 			M.count_buffer = ""
 
@@ -45,12 +48,6 @@ local function sniper_mode_callback(sniper)
 				end
 			end
 			quit_sniper_mode(sniper)
-			return ""
-		elseif key == vim.api.nvim_replace_termcodes("<Esc>", true, true, true) then
-			quit_sniper_mode(sniper)
-			return ""
-		else
-			M.count_buffer = ""
 			return ""
 		end
 	end
